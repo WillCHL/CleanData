@@ -1,4 +1,4 @@
-## Getting and Cleaning Data Assignment - Read Me
+# Getting and Cleaning Data Assignment - Read Me
 
 The repo is for Coursera Getting and Cleaning Data Week 4 Assignment.  I contains three files (including this one):  
 * README.md
