@@ -7,6 +7,8 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 Further information on the dataset can be found here:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+The data was derived from accelerometer and gyroscope 3-axial signals a smart phone and processed to produce time and frequency domain variables.
+
 ## Variables
 * subject: The subject number from the study (factor variable 1:30).
 * activity: The activity number from the study (factor variable 1:6 levels:
