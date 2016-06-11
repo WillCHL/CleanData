@@ -33,18 +33,22 @@ subjects<-rbind(test_subjects, train_subjects)
 activities<-rbind(test_labels,train_labels)
 
 # Select only mean and standard deviation variables
-mean_col<-grep("mean",names(combined))
+mean_col<-grep("mean\\(",names(combined))
 std_col<-grep("std",names(combined))
 select_col<-sort(c(mean_col,std_col))
 mean_std<-combined[,select_col]
 
 # Clean up names
 #Function to remove the leading t or f
-clean_nm<-function(y) { substr(y,2,nchar(y)) }
+clean_nm<-function(y) {
+  if (substr(y, 1, 1) == "t") { y<-paste("Time",substr(y,2,nchar(y)),sep="") }
+  if (substr(y, 1, 1) == "f") { y<-paste("Freq",substr(y,2,nchar(y)),sep="") }
+  y<-sub("\\(\\)","",y)
+  }
 
 var_nm<-names(mean_std)
-var_nm<-sapply(var_nm,clean_nm)
-names(mean_std)<-as.character(sub("\\(\\)","",var_nm))
+names(mean_std)<-as.character(sapply(var_nm,clean_nm))
+#names(mean_std)<-as.character(sub("\\(\\)","",var_nm))
 
 # Convert the activity variable and subject number to factors with labels for activities
 subjects<-mutate(subjects,snum=as.factor(snum))
