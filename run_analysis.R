@@ -3,6 +3,10 @@
 # Load dplyr library
 library(dplyr)
 
+# download and unzip data
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "UCIHARdata.zip", method="curl")
+unzip("UCIHARdata.zip")
+
 # Read in activity identifiers
 activity_labels<-read.table("UCI HAR Dataset/activity_labels.txt",header=FALSE,sep=" ")
 names(activity_labels)<-c("anum","activity")
